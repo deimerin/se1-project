@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url('https://cdn.wallpapersafari.com/36/94/wdEIfK.jpg');
+  background-repeat:no-repeat;
+  background-size: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.container {
+  min-height: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
 }
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 20;
+  border-bottom-left-radius: 20;
+}
+
+.form-signin input[type="password"] {
+  margin-top: 10px;
+  border-top-left-radius: 20;
+  border-top-right-radius: 20;
+}
+
+
+
+
+
+#row-candidatos {
+  background-color: whitesmoke;
+  min-width: 800px;
+  height: 400px;
+  
+}
+
+#picture-p {
+  max-height: 200px;
+  max-width:  300px;
+
+
+}
+
+#col1-cand {
+  border: 1px;
+  max-width: 800px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+#col2-cand {
+  border: 1px;
+  max-width: 800px;
+  max-height: 400px;
+}
+
+#boton-elegir {
+  width: 200px;
+}
+
+
+
+
+#contenedor-administrador{
+  background-color: whitesmoke;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+#row1 {
+  height: 10%;
+}
+
+#row2 {
+  height: 90%;
+}
+
+#con-adm-col-4 {
+  height: 100%;
+}
+
+#con-adm-col {
+  height: 100%;
+}
+
+#card-adm {
+  width: 300px;
+  
+}
+#card-vot {
+  width: 300px;
+  
+}
+
+/*
+    css perfil
+*/
+
+#img-user {
+  max-width: 25%;
+  max-height: 25%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+#contenedor-perfil {
+  max-width: 400px;
+}
+
+#btt-perf {
+  width: 100px;;
+}
+

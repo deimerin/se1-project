@@ -1,25 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
 
-function App() {
+//componentes
+import Login from './components/Login';
+import Perfil from './components/Perfil';
+import Votar from './components/Votar';
+import Administrador from './components/Administrador';
+import Inicio from './components/Inicio';
+import {
+  Outlet,
+  Link,
+  Routes,
+  Route
+} from "react-router-dom";
+
+//CONTEXT
+import UserState from './state/userState';
+
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UserState>      
+        <Routes>
+          <Route index path='/' element={<Login/>}/> 
+          <Route exact path='/perfil' element={<Perfil/>}/>
+          <Route exact path='/perfil/votacion' element={<Votar/>} /> 
+          <Route exact path='*' element={<Login/>} /> 
+        </Routes>  
+      </UserState>
+    </>
   );
-}
 
+  function Layout() {
+    return (
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <link to=''></link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    );
+  }
+
+};
 export default App;
+
+//<UserState>      
+//<Routes>
+//  <Route exact path='/' element={<Login/>}></Route>          
+//  <Route exact path='/perfil/votacion' element={<Votar/>}> </Route>
+//  <Route exact path='/perfil' element={<Perfil/>}></Route>
+//</Routes>  
+//</UserState>
+
+  //if (logueado) {
+  //  return (<Login/>)
+  //} else {
+  //  return (<Inicio/>)
+  //}
+
+  //constructor (props) { 
+  //  super(props);
+  //  this.state = {
+  //    logueado: false,
+  //    username: ''
+  //  }
+  //}
+  
+  //renderLogin () {
+  //  return (
+  //    <Login />
+  //  );
+  //}
+//
+  //renderApp () {
+  //  return(
+  //    <Inicio />
+  //  );
+//
+  //}
+//
+  //render() {
+  //  if (this.state.logueado) {
+  //    return( this.renderApp());
+  //  } else {
+  //    return (this.renderLogin())
+  //  }
+  //}
