@@ -7,7 +7,6 @@ import UserContext from "../state/userContext";
 
 
 const CargarDatosCand = async (estado) => {
-    //const docRef1 = await addDoc(collection(db, "votty-bpoll"), {ash: hash});
     console.log('cargando datos...')
     const list_r = [];
     if(estado){

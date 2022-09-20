@@ -5,15 +5,13 @@ import './App.css'
 import Login from './components/Login';
 import Perfil from './components/Perfil';
 import Votar from './components/Votar';
-import Administrador from './components/Administrador';
-import Inicio from './components/Inicio';
 import {
-  Outlet,
-  Link,
+
   Routes,
   Route
 } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //CONTEXT
 import UserState from './state/userState';
 
@@ -27,7 +25,8 @@ function App () {
           <Route exact path='/perfil' element={<Perfil/>}/>
           <Route exact path='/perfil/votacion' element={<Votar/>} /> 
           <Route exact path='*' element={<Login/>} /> 
-        </Routes>  
+        </Routes>
+        <ToastContainer />  
       </UserState>
     </>
   );
