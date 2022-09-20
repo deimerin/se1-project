@@ -1,31 +1,41 @@
 import React, { useEffect, useContext }  from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Votter from '../votty/voter';
+
 //CONTEX
 import UserContext from '../state/userContext';
-import db from '../firebase/firebaseConfig';
+
 
 
 const Perfil = () => {
-  //console.log('En perfil, router funcion.')
+
   const {user, getCandidates, setInitialState} = useContext(UserContext);
   const navigate  = useNavigate();
   var name = user.name;
   var cedula = user.id;
-  //console.log('cedula votante desde perfil: ', name)
-  var estadoVotante = 'Denegado';
-  //console.log(name);
-  //console.log(cedula);
+  let estadoVotante = '';  
+  if (!user.hasVoted) {
+    estadoVotante = 'Valido';  
+  } else {
+    estadoVotante = 'Invalido';
+  }
 
   const goToVotter = () => {
-    console.log('hasvoted: ', user.hasVoted)
-
     if (!user.hasVoted) {
-      estadoVotante = 'Valido';
-      //console.log('desde perfil: ', user);
       navigate('/perfil/votacion');
-    };
+    } else {
+      toast.info('Ya realizo el proceso de votacion...', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
   };
 
   const goToLogin = () => {
@@ -35,7 +45,7 @@ const Perfil = () => {
 
   useEffect(() => {
     getCandidates();
-  }, [])
+  }, [user.hasVoted])
   
   
 

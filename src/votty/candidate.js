@@ -20,6 +20,9 @@ class Candidate {
     get ballotId () {
         return this._num;
     }
+    get num () {
+        return this._num;
+    }
 }
 
 export default Candidate;

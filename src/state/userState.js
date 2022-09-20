@@ -18,7 +18,6 @@ const UserState = (props) => {
         candidate: new Candidate('', '', ''),
         ballot: new Ballot(),
         estado: true
-
     };
     
     const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -65,6 +64,10 @@ const UserState = (props) => {
         dispatch({
             type: 'SET_CANDIDATES',
             payload: []
+        })
+        dispatch({
+            type: 'SET_ESTADO',
+            payload: true
         })
     }
 
@@ -115,6 +118,7 @@ const UserState = (props) => {
             candidate: state.candidate,
             ballot: state.ballot,
             estado: state.estado,
+            conClick: state.conClick,
             setUser,
             setLoggedStatus,
             setCedula,

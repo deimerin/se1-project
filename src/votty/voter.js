@@ -72,19 +72,16 @@ class Votter {
     if((lst.length == 1) & (this._id == lst[0][0]) & (!lst[0][1])){
       const votter = doc(db, "votty-vot", this._idVotter);
       await updateDoc(votter, {
-      voted: false
-    });
-
-    this._hasVoted = false;
+      voted: true
+      });
+      this._hasVoted = true;
     }
-    console.log('hasvote: ', lst[0][1], ' ', this._hasVoted)
   }
   //Autentica al usuario, comprobando que los datos enviados coincidan
   //devuelve true e inicializa los demas campos de la clase, de lo contrario
   //no realiza cambios
   
   autenticarVotante = async () => {
-    console.log('haciendo consulta...')
     const q = query(
       collection(this._db, "votty-vot"),
       where("id", "==", String(this._id))
